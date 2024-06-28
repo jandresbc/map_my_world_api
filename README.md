@@ -8,19 +8,18 @@ La base de datos usada es Mysql 8.0.27 y la versión de python es = 3.11.1
 ## .env template
 Asegurate que el proyecto tenga en su raiz un archivo con el nombre .env con la siguientes variables, las cuales son importantes para la ejecución del API.
 
-DATABASE = 'nombre_de_la_basededatos'
-HOST = "localhost"
-USER = "usuario_mysql"
-PASS = "password_usuario"
-PORT = 3306 # Puerto de ejecución, por defecto Mysql trabaja en el puerto 3306
-
-KEY = "algun_texto" # Ingresa un texto aleatorio para el key principal de la API.
-SECRET = "llave_secreta" # Ingresa un texto como tu llave secreta para la API.
+1. DATABASE = 'nombre_de_la_basededatos'
+2. HOST = "localhost"
+3. USER = "usuario_mysql"
+4. PASS = "password_usuario"
+5. PORT = 3306 # Puerto de ejecución, por defecto Mysql trabaja en el puerto 3306
+6. KEY = "algun_texto" # Ingresa un texto aleatorio para el key principal de la API.
+7. SECRET = "llave_secreta" # Ingresa un texto como tu llave secreta para la API.
 
 ## Endpoints
 
 ### Auth
-- **POST** `/api/v1/auth/`: Gestiona la seguridad del API basado en obtener un web token disponible por 1 hora.
+- **GET** `/api/v1/auth/`: Gestiona la seguridad del API basado en obtener un web token disponible por 1 hora.
 
 ### Ubicaciones
 - **POST** `/api/v1/locations/`: Gestiona una nueva ubicación.
@@ -30,6 +29,8 @@ SECRET = "llave_secreta" # Ingresa un texto como tu llave secreta para la API.
 
 ### Recomendaciones
 - **GET** `/api/v1/recommendations/`: Obtiene 10 combinaciones de ubicación y categoría que no han sido revisadas en los últimos 30 días o nunca hayan sido gestionadas.
+
+la documentación general del API la puedes acceder desde https://URL_YOUR_PROJECT/docs
 
 ## Instalación y Ejecución
 
