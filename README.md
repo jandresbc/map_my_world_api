@@ -54,9 +54,79 @@ la documentación general del API la puedes acceder desde https://URL_YOUR_PROJE
 
 ### Despliegue
 
-El API está configurada para desplegarse en una azure_functions. Desde tu proyecto de VSCode debes tener instalada la extensión oficial de Azure Functions y una cuenta en Azure. Con esto podrás crear una azure functions y dándole click en Deploy to function App podrás ejecutar el despliegue en Azure. Est
+El API está configurada para desplegarse en una azure_functions. Desde tu proyecto de VSCode debes tener instalada la extensión oficial de Azure Functions y una cuenta en Azure. Con esto podrás crear una azure functions y dándole click en Deploy to function App podrás ejecutar el despliegue en Azure. Sin embargo el proyecto puede ejecutarse perfectamente dentro un entorno local con los pasos anteriores.
 
 # Consideraciones
 
 Asegurate antes de realizar el despliegue de tener una base de datos con los datos de conexión configurados en tu Azure function en sus variables de entorno, esto te permitirá desplegar tu funcion sin problemas.
 
+## Estructura de directorios del proyecto:
+
+my_fastapi_project/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── v1/
+│   │   │   ├── __init__.py
+│   │   │   │── users.py
+│   │   │   ├── locations.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── jwt.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   ├── locations.py
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   ├── locations.py
+│   ├── cruds/
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   ├── recommendations.py
+│   ├── databases/
+│   │   ├── __init__.py
+│   │   ├── databases.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── common.py
+│   └── tests/
+│       ├── __init__.py
+│       ├── test_user.py
+│       ├── test_item.py
+├── .env
+├── .gitignore
+├── README.md
+├── requirements.txt
+
+## Descripción de los directorios y archivos
+app/: Contiene la lógica principal de la aplicación.
+   main.py: Punto de entrada de la aplicación, define la instancia de FastAPI y la configuración de enrutamiento.
+   routes/: Define los routers y las rutas del proyecto.
+      v1/: Puede tener diferentes versiones de la API.
+   core/: Contiene la configuración central y funciones de seguridad.
+      config.py: Archivo de configuración para la aplicación.
+      jwt.py: Funciones relacionadas con JWT.
+   models/: Define los modelos de base de datos.
+      user.py, locations.py: Modelos de usuarios e ubicaciones.
+   schemas/: Define los esquemas (pydantic) utilizados para la validación de datos.
+      user.py, locations.py: Esquemas para usuarios e ubicaciones.
+   cruds/: Contiene las operaciones CRUD.
+      user.py, recommendations.py: Operaciones CRUD para usuarios e recomendaciones.
+   databases/: Gestión de la base de datos.
+      databases.py: Definición base de las conexion a la base de datos.
+   utils/: Utilidades y funciones comunes.
+      common.py: Funciones comunes.
+   tests/: Contiene los tests del proyecto.
+      test_user.py, test_item.py: Tests para usuarios e ítems.
+.env: Archivo para las variables de entorno.
+
+.gitignore: Define los archivos y directorios que Git debe ignorar.
+
+README.md: Documentación del proyecto.
+
+requirements.txt: Lista de dependencias del proyecto.
