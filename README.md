@@ -92,6 +92,8 @@ Asegurate antes de realizar el despliegue de tener una base de datos con los dat
 
 - **.gitignore**: Define los archivos y directorios que Git debe ignorar.
 
+- **function_app.py**: Punto de entrada de la aplicación y de el despliegue en azure function. Desde aqui puedes ejecutar en entrono local o realizar el despliegue en un azure funtion.
+
 - **README.md**: Documentación del proyecto.
 
 - **requirements.txt**: Lista de dependencias del proyecto.
